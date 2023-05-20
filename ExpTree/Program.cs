@@ -16,6 +16,7 @@ namespace ExpTree
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DynamicSelect.Run();
             Application.Run(new Form1());
         }
     }
