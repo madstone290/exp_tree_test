@@ -6,11 +6,40 @@ using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using System.Net.Cache;
 using System.Reflection;
+using System.Linq.Expressions;
+using System.Dynamic;
 
 namespace ExpTree
 {
     public class DynamicSelect
     {
+        public static void Run()
+        {
+            //Demo1(12);
+            DemoFunc();
+        }
+
+
+
+        public static Func<ExpandoObject, ExpandoObject> Func()
+        {
+            Func<ExpandoObject, ExpandoObject> func = new Func<ExpandoObject, ExpandoObject>((obj) =>
+            {
+                dynamic result = new ExpandoObject();
+                result.Id = 14;
+                result.Name = "Jack";
+                return result;
+            });
+
+            return func;
+        }
+
+        static void DemoFunc()
+        {
+            var func = Func();
+            var r = func(null);
+        }
+
         class User
         {
 
@@ -83,9 +112,6 @@ namespace ExpTree
             }
         }
 
-        public static void Run()
-        {
-            Demo1(12);
-        }
+
     }
 }

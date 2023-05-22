@@ -16,7 +16,8 @@ namespace ExpTree
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DynamicSelect.Run();
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(new { name = "ajck"});
+            ExpressionPlayground.Run();
             Application.Run(new Form1());
         }
     }
